@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Login System</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    // Fast client-side check to route to dashboard if already authenticated, else login
+    fetch('/api/me')
+      .then(res => {
+        if (res.ok) window.location.replace('/dashboard.html');
+        else window.location.replace('/login.html');
+      })
+      .catch(() => {
+        window.location.replace('/login.html');
+      });
+  </script>
+</head>
+<body>
+  <div class="ambient-glow">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+  </div>
+  <div class="page-wrapper" style="align-items: center; justify-content: center; text-align: center;">
+    <div class="brand-icon" style="width: 56px; height: 56px; margin: 0 auto 1.5rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+      </svg>
+    </div>
+    <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Connecting to Secure Vault...</h2>
+    <p style="color: var(--text-muted); font-size: 0.95rem;">Please wait while we verify your authentication session.</p>
+  </div>
+</body>
+</html>

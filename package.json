@@ -1,0 +1,27 @@
+{
+  "name": "secure-login-system",
+  "version": "1.0.0",
+  "description": "A simple and secure authentication and session management web application.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "authentication",
+    "login",
+    "express",
+    "sqlite",
+    "bcrypt",
+    "session"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.19.0",
+    "sqlite3": "^6.0.1"
+  }
+}

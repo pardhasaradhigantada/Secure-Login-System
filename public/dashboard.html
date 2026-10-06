@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure Dashboard - Authenticated user account and session management overview.">
+  <title>Dashboard - Secure Login System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Ambient Background Glow -->
+  <div class="ambient-glow">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- Top Header -->
+    <header class="app-header">
+      <a href="/dashboard.html" class="brand-badge">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </div>
+        <span>AuthShield</span>
+      </a>
+
+      <div class="brand-status-tag">
+        <span class="status-dot"></span>
+        <span>Authenticated Session</span>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content" style="align-items: flex-start;">
+      <div class="dashboard-container">
+
+        <!-- User Greeting Hero Banner -->
+        <section class="user-hero-card">
+          <div class="hero-left">
+            <div id="user-avatar" class="user-avatar-circle">
+              <!-- Dynamically populated with first letter -->
+              U
+            </div>
+            <div class="hero-text">
+              <h1>Welcome, <span id="user-greeting">User</span>! 👋</h1>
+              <p id="user-email-sub">user@example.com</p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <!-- Logout Button -->
+            <button type="button" id="logout-btn" class="btn-logout" title="End authenticated session">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+              </svg>
+              <span>Logout</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Dashboard Grid Cards -->
+        <div class="dashboard-grid">
+
+          <!-- 1. Account Profile Details -->
+          <div class="grid-card">
+            <div class="card-title-row">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                Profile Information
+              </h3>
+              <span class="badge-verified">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Verified
+              </span>
+            </div>
+
+            <div class="details-list">
+              <div class="detail-item">
+                <span class="detail-label">User ID:</span>
+                <span id="val-user-id" class="detail-value mono">#--</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Username:</span>
+                <span id="val-username" class="detail-value">--</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Email:</span>
+                <span id="val-email" class="detail-value">--</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Member Since:</span>
+                <span id="val-created-at" class="detail-value">--</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Session Security Details -->
+          <div class="grid-card">
+            <div class="card-title-row">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                Session Management
+              </h3>
+              <span class="badge-verified">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                HTTP-Only
+              </span>
+            </div>
+
+            <div class="details-list">
+              <div class="detail-item">
+                <span class="detail-label">Session Status:</span>
+                <div id="val-session-status" class="brand-status-tag" style="background:transparent; border:none; padding:0;">
+                  <span class="status-dot"></span>
+                  <span>Active</span>
+                </div>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Cookie Lifetime:</span>
+                <span id="val-cookie-expires" class="detail-value">24 Hours</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Session Storage:</span>
+                <span class="detail-value mono">express-session</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">XSS Cookie Theft:</span>
+                <span class="badge-verified" style="font-size: 0.72rem;">Protected (HttpOnly)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Security Architecture Checklist -->
+          <div class="grid-card" style="grid-column: 1 / -1;">
+            <div class="card-title-row">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Security Safeguards In Action
+              </h3>
+            </div>
+
+            <div class="feature-checklist">
+              <div class="feature-check-item">
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="feature-info">
+                  <strong>Password Hashing Algorithm:</strong>
+                  <span id="sec-hash">bcrypt (12 Salt Rounds, One-Way Cryptographic Hash)</span>
+                </div>
+              </div>
+
+              <div class="feature-check-item">
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="feature-info">
+                  <strong>Database Query Sanitization:</strong>
+                  <span id="sec-db">SQLite3 with Parameterized Queries (Zero String Concatenation, SQL Injection Immune)</span>
+                </div>
+              </div>
+
+              <div class="feature-check-item">
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="feature-info">
+                  <strong>Brute Force Defense:</strong>
+                  <span id="sec-rate">express-rate-limit active (Max 5 attempts / 15-min window per IP)</span>
+                </div>
+              </div>
+
+              <div class="feature-check-item">
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="feature-info">
+                  <strong>Plain-Text Password Protection:</strong>
+                  <span>Zero plain-text passwords stored. Plain-text passwords never logged or included in API responses.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Secure Login System &bull; Node.js, Express, SQLite, bcrypt &amp; express-session</p>
+    </footer>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
